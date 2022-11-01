@@ -6,7 +6,7 @@ import logging
 import voluptuous as vol
 
 from homeassistant.components.camera import (
-    ATTR_ENTITY_ID, ATTR_FILENAME, CAMERA_SERVICE_SCHEMA,
+    ATTR_ENTITY_ID, ATTR_FILENAME,
     PLATFORM_SCHEMA, SUPPORT_ON_OFF, Camera)
 from homeassistant.components.camera.const import DOMAIN
 from homeassistant.const import (
@@ -36,6 +36,8 @@ LED_MODE_KEY = 'LED'
 ATTR_MODE = 'mode'
 ATTR_VALUE = 'value'
 ATTR_DURATION = 'duration'
+
+CAMERA_SERVICE_SCHEMA = vol.Schema({vol.Required(ATTR_ENTITY_ID): cv.comp_entity_ids})
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_SCAN_INTERVAL, default=SCAN_INTERVAL):
